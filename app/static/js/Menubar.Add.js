@@ -149,9 +149,11 @@ Menubar.Add = function ( editor ) {
             var thetaStart = 0;
             var thetaLength = Math.PI;
 
-            var geometry = new THREE.SphereBufferGeometry( radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength );
-            var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
-            var mesh = new THREE.Mesh( geometry, material );
+            var sphereGeometry = new THREE.SphereGeometry( radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength );
+            var texture = THREE.ImageUtils.loadTexture('\static\js\images\Sphere Texture.jpg');
+            var material = new THREE.MeshBasicMaterial({map: texture});
+            var mesh = new THREE.Mesh(sphereGeometry, material);
+
             mesh.name = 'Antenna (Point) ' + ( ++ meshCount );
 
             editor.execute( new SetPositionCommand( mesh, new THREE.Vector3( x_NG, z_NG, y_NG ) ) );     // move object to desired coordinates
