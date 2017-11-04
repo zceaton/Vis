@@ -116,7 +116,7 @@ Menubar.Add = function ( editor ) {
             var thetaLength = Math.PI;
 
             var sphereGeometry = new THREE.SphereGeometry( radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength );
-            var texture = THREE.ImageUtils.loadTexture('\static\js\images\Sphere Texture.jpg');
+            var texture = THREE.ImageUtils.loadTexture('/static/js/images/Sphere Texture.jpg');
             var material = new THREE.MeshBasicMaterial({map: texture});
             var mesh = new THREE.Mesh(sphereGeometry, material);
 
